@@ -1,0 +1,1 @@
+web: gunicorn calendairy.wsgi --log-file -
