@@ -1,39 +1,71 @@
-<!DOCTYPE html>
-  <html xmlns="http://www.w3.org/1999/xhtml">
-      <head>
-            <title>Essential JS 2 Calendar Component</title>
-            <!-- Essential JS 2 Calendar's dependent material theme -->
-            <link href="https://cdn.syncfusion.com/ej2/ej2-base/styles/material.css" rel="stylesheet" type="text/css" />
-            <link href="https://cdn.syncfusion.com/ej2/ej2-buttons/styles/material.css" rel="stylesheet" type="text/css" />
-            <link href="https://cdn.syncfusion.com/ej2/ej2-calendars/styles/material.css" rel="stylesheet" type="text/css" />
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>자바스크립트로 달력 만들기</title>
+<style>
+body {font-family: Verdana, Dotum; line-height:20px;}
+.B {font-weight:bold}
+.box {width:185px; text-align:center; border:1px solid #dddddd}
+.calendar_box {width:175px; padding:5px}
+.calendar_text {width:25px; float:left; text-align:center; font-size:12px}
+.RED {color:red}
+.BLUE {color:blue}
+.calendar_title {margin:0px; text-align:center; font-size:12px; background-color:#999999; color:#ffffff}
+.calendar_tail {clear:both;}
+</style>
+<script>
+function calendar(){
+var today = new Date();
+var year = today.getFullYear();
+var month = today.getMonth() + 1;
+var day = today.getDate();
+var week_start = new Date(year,month-1,1).getDay();
+var day_max = get_day_max(year,month-1);
+var i = 0;
+var j = 0;
+var html = "<div class='calendar_box'><div class='calendar_title B'>" + year + "-" + get_number_str(month) + "-" + get_number_str(day) + "</div>";
+while (j < day_max){
+if (i < week_start) {
+html += "<div class='calendar_text'>·</div>";
+} else {
+if (i%7==0) font_color = " RED";
+else if (i%7==6) font_color = " BLUE";
+else font_color = "";
+if (day == (j+1)) font_weight = " B"; else font_weight = "";
+html += "<div class='calendar_text" + font_color + font_weight + "'>" + (j+1) + "</div>";
+j ++;
+}
+i ++;
+}
+while (i%7!==0){
+html += "<div class='calendar_text'>·</div>";
+i ++;
+}
+html += "<div class='calendar_tail'></div></div>";
+return html;
+}
+function get_day_max(year,month){
+var i = 29, cday;
+while(i<32){
+cday = new Date(year,month,i);
+if (cday.getFullYear()!=year || cday.getMonth()!=month) break;
+i++;
+}
+return i-1;
+}
+function get_number_str(num){
+if (num<10) num = '0' + num;
+return num;
+}
+</script>
+</head>
+<body>
+<div class="box">
+<script>
+d0cument.write(calendar());
+</script>
+</div>
+</body>
+</html>
 
-            <!-- Essential JS 2 all script -->
-            <!-- <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js" type="text/javascript"></script> -->
-
-            <!-- Essential JS 2 Calendar's dependent scripts -->
-            <script src="https://cdn.syncfusion.com/ej2/ej2-base/dist/global/ej2-base.min.js" type="text/javascript"></script>
-            <script src="https://cdn.syncfusion.com/ej2/ej2-inputs/dist/global/ej2-inputs.min.js" type="text/javascript"></script>
-            <script src="https://cdn.syncfusion.com/ej2/ej2-buttons/dist/global/ej2-buttons.min.js" type="text/javascript"></script>
-            <script src="https://cdn.syncfusion.com/ej2/ej2-lists/dist/global/ej2-lists.min.js" type="text/javascript"></script>
-            <script src="https://cdn.syncfusion.com/ej2/ej2-popups/dist/global/ej2-popups.min.js" type="text/javascript"></script>
-            <script src="https://cdn.syncfusion.com/ej2/ej2-calendars/dist/global/ej2-calendars.min.js" type="text/javascript"></script>
-            <style>
-                #wrapper{
-                    margin:0 450px;
-                }
-            </style>
-       </head>
-       <body>
-           <div id="wrapper">
-            <!-- Add the HTML <div> element  -->
-             <div id="element"/>
-            </div>
-            <script>
-                // initialize Calendar component
-                var calendar = new ej.calendars.Calendar();
-
-                // Render initialized button.
-                calendar.appendTo('#element')
-            </script>
-       </body>
-  </html>
