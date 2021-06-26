@@ -1,8 +1,13 @@
+
 from django.shortcuts import render, redirect
+from .models import Diary
+
 
 # Create your views here.
 
 def home(request):
+    diarys = Diary.objects
+    return render(request,'home.html', {'diarys':diarys})
     return render(request,'home.html')
 
 def memo_create(request):
@@ -15,3 +20,4 @@ def memo_create(request):
         form = Memo_createForm()
     return render(request, 'memo_create.html', {'form':form})
             
+
