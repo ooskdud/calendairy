@@ -5,11 +5,10 @@ from .models import Diary
 
 # Create your views here.
 
-def home(request):
+def index(request):
     diarys = Diary.objects
-    return render(request,'home.html', {'diarys':diarys})
-    return render(request,'home.html')
-
+    return render(request,'index.html', {'diarys':diarys})
+    
 def memo_create(request):
     if request.method == 'POST':
         form = Memo_createForm(request.POST)
@@ -19,5 +18,14 @@ def memo_create(request):
     else:
         form = Memo_createForm()
     return render(request, 'memo_create.html', {'form':form})
-            
+
+def diary_create(request):
+    if request.method == 'POST':
+        form = Diary_createForm(request.POST)
+        if form.is_valid():
+            Diary = form.save(commit=False)
+        return redirect('/Diary_detail/'+str(Diary.id))
+    else:
+        form = Diary_createForm()
+    return render(request,'diary_create.html', {'diarys':diarys})
 
