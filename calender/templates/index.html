@@ -3,6 +3,24 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title>CALENDIARY</title>
+</head>
+
+<body>
+  <header><h1>CALENDIARY</h1></header>
+  <div class="year-month"></div>
+       <div class="nav">
+         <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
+         <button class="nav-btn go-today" onclick="goToday()">Today</button>
+         <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
+        </div>
+  <div class="calendar">
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,7 +73,21 @@
       <div class="dates"></div>
     </div>
   </div>
+
+
+  <!--화면을 클릭했을 때 일정 추가하는 버튼-->
+  <div id="myModal" class="modal">
+    <div class= "modal-content">
+       <span class="close">&times;</span>
+       <p>일정 추가버튼</p>
+       <input name = "t_schedule" type="text" value=" "/>
+       <br><br> 
+       <input type="button" name="add" value="Add"/>
+       <input type="button" name="cancel" value="Cancel"/>
+    </div>
+   </div>
+
   <script src="index.js"></script>
   <script src="/static/js/index.js"></script>
 </body>
-</html>
+  </html>
