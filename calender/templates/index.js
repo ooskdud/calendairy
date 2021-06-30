@@ -1,4 +1,3 @@
-
 let date = new Date();
 
 const renderCalender = () => {
@@ -70,31 +69,3 @@ const goToday = () => {
   date = new Date();
   renderCalender();
 };
-
- 
-
-//알림창 설정에 대해 필요한 것들 html에서 가져오기
-var modal = document.getElementById('myModal');
-var span = document.getElementsByClassName("close")[0];
- 
-var dates = document.querySelectorAll('dates'); //모든 태그에 대해 알림창 설정
- 
-for(var i=0; i<td.length; i++){
-    if(i>=(today_days+null_days-1)){ //여기에서만 실행되도록 정하기 today_days+null_days-1는 현재 날짜 전까지의 인덱스를 표현한 것
-   
-        dates[i].ondblclick = function() {
-            modal.style.display = "block";
-        };
-    } 
-}
- 
-span.onclick = function(event){
-    modal.style.display = "none";
- }
- 
- window.onclick = function(event){
-     if(event.target == modal){
-         modal.style.display = "none";
-     }
- }
- 
