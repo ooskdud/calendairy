@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,19 +20,60 @@
          <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
         </div>
   <div class="calendar">
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <title>CALENDIARY</title>
+</head>
+
+<body>
+  <div class="dropdown">
+    <h2> <img src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjUxMnB0IiB2aWV3Qm94PSIwIC01NyA1MTIuMDAwMDMgNTEyIiB3aWR0aD0iNTEycHQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTUwNi4wMzkwNjIgMTgwLjQ5MjE4OGMtNy43NzM0MzctMTIuNTU0Njg4LTIxLjUyMzQzNy0yMC4wNDY4NzYtMzYuNzgxMjUtMjAuMDQ2ODc2aC0zOC4wODU5Mzd2LTY5Ljg2MzI4MWMwLTE2Ljg2MzI4MS0xNC4yMjY1NjMtMzAuNTc4MTI1LTMxLjcxMDkzNy0zMC41NzgxMjVoLTE4Ni40NDE0MDdjLS4yNzM0MzcgMC0uNDU3MDMxLS4wNzgxMjUtLjUzMTI1LS4xMjVsLTMzLjM2NzE4Ny00Ni42Njc5NjhjLTUuOTE3OTY5LTguMjczNDM4LTE1LjY3NTc4Mi0xMy4yMTA5MzgtMjYuMTA1NDY5LTEzLjIxMDkzOGgtMTIxLjMwNDY4N2MtMTcuNDg4MjgyIDAtMzEuNzEwOTM4IDEzLjcxODc1LTMxLjcxMDkzOCAzMC41NzgxMjV2MzM1LjE0ODQzN2MwIDE3LjI1NzgxMyAxNC41NzAzMTIgMzEuMzAwNzgyIDMyLjQ4NDM3NSAzMS4zMDA3ODJoMzc3LjM2MzI4MWM1Ljg3ODkwNiAwIDEwLjk1NzAzMi0zLjM5NDUzMiAxMy40MTQwNjMtOC4zMjAzMTNsLjAxMTcxOS4wMDM5MDcgODQuNTYyNS0xNjkuODM5ODQ0YzYuMTMyODEyLTEyLjMwODU5NCA1LjQ1NzAzMS0yNi42NTYyNS0xLjc5Njg3Ni0zOC4zNzg5MDZ6bS00NzQuMzI4MTI0LTE1MC40OTIxODhoMTIxLjMwNDY4N2MuODk4NDM3IDAgMS41MDc4MTMuMzk0NTMxIDEuNjk5MjE5LjY2NDA2MmwzMy40MTc5NjggNDYuNzM0Mzc2YzUuNjQwNjI2IDcuODkwNjI0IDE0Ljk0NTMxMyAxMi42MDU0NjggMjQuODg2NzE5IDEyLjYwNTQ2OGgxODYuNDQxNDA3YzEuMDQ2ODc0IDAgMS41NzgxMjQuNDkyMTg4IDEuNzEwOTM3LjY2Nzk2OXY2OS43NzM0MzdoLTI3MS40NzI2NTZjLTE2LjgzNTkzOCAwLTMyLjE0ODQzOCA5LjQ4ODI4Mi0zOS4wMTE3MTkgMjQuMTc1NzgybC02MC42ODc1IDEyOS44NzEwOTR2LTI4My44MjQyMTljLjEzMjgxMi0uMTc1NzgxLjY2NDA2Mi0uNjY3OTY5IDEuNzEwOTM4LS42Njc5Njl6bTQ0OS4yNjk1MzEgMTc1LjUtODAuNDIxODc1IDE2MS41MjM0MzhoLTM2MS45OTIxODhsNzkuMzAwNzgyLTE2OS42OTkyMTljMS45MjE4NzQtNC4xMTMyODEgNi42Nzk2ODctNi44Nzg5MDcgMTEuODMyMDMxLTYuODc4OTA3aDMzOS41NTg1OTNjNC43OTI5NjkgMCA5LjAwNzgxMyAyLjE4MzU5NCAxMS4yNzM0MzggNS44Mzk4NDQgMS4yNzM0MzggMi4wNTg1OTQgMi4zODI4MTIgNS4zMjgxMjUuNDQ5MjE5IDkuMjE0ODQ0em0wIDAiLz48L3N2Zz4=" 
+      width="25px"/> 그룹선택</h2>
+      <ul class="group">
+        <li> <div id="box1"></div> 중요한 것</li>
+        <li>시험!</li>
+        <li>약속</li>
+        <li>과제</li>
+      </ul>
+      <hr id="line">
+    <h2 id="dtext">DIARY</h2>
+  </div>
+  <div id="myModal" class="modal">
+    <div class= "modal-content">
+       <p>오늘의 일정추가</p>
+       <input name = "t_schedule" type="text" value=" "/>
+       <br><br> 
+       <input type="button" name="add" value="Add"/>
+       <input type="button" name="cancel" value="Cancel"/>
+    </div>
+   </div>
+
+  <div class="calendar">
+    <div class="header">
+      <div class="year-month"></div>
+      <div class="nav">
+        <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
+        <button class="nav-btn go-today" onclick="goToday()">Today</button>
+        <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
+      </div>
+    </div>
     <div class="main">
       <div class="days">
-          <div class="day">일</div>
-          <div class="day">월</div>
-          <div class="day">화</div>
-          <div class="day">수</div>
-          <div class="day">목</div>
-          <div class="day">금</div>
-          <div class="day">토</div>
+        <div class="day">일</div>
+        <div class="day">월</div>
+        <div class="day">화</div>
+        <div class="day">수</div>
+        <div class="day">목</div>
+        <div class="day">금</div>
+        <div class="day">토</div>
       </div>
-            <div class="dates"></div>
+      <div class="dates"></div>
     </div>
   </div>
+
 
   <!--화면을 클릭했을 때 일정 추가하는 버튼-->
   <div id="myModal" class="modal">
@@ -45,6 +87,7 @@
     </div>
    </div>
 
+  <script src="index.js"></script>
   <script src="/static/js/index.js"></script>
 </body>
   </html>

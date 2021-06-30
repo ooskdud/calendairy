@@ -1,4 +1,3 @@
-
 let date = new Date();
 
 const renderCalender = () => {
@@ -43,6 +42,7 @@ const renderCalender = () => {
 
   document.querySelector('.dates').innerHTML = dates.join('');
 
+
   const today = new Date();
   if (viewMonth === today.getMonth() && viewYear === today.getFullYear()) {
     for (let date of document.querySelectorAll('.this')) {
@@ -53,6 +53,12 @@ const renderCalender = () => {
     }
   }
 };
+
+// document.querySelector('.days').addEventListener('click',function() {
+//   document.querySelector('.days').select();
+// })
+
+// $('.dayte').click(function() { $('.date').select(); });
 
 renderCalender();
 
@@ -71,7 +77,6 @@ const goToday = () => {
   renderCalender();
 };
 
- 
 
 //알림창 설정에 대해 필요한 것들 html에서 가져오기
 var modal = document.getElementById('myModal');
@@ -97,4 +102,26 @@ span.onclick = function(event){
          modal.style.display = "none";
      }
  }
+
+
+// var modal = document.getElementById('myModal');
+// var span = document.getElementsByClassName("close")[0];
+ 
+// var td = document.querySelectorAll('td'); //모든 태그에 대해 알림창 설정
+ 
+
+// td.ondblclick = function() {
+//     modal.style.display = "block";
+// }
+
+// span.onclick = function(event){
+//     modal.style.display = "none";
+//  }
+ 
+//  window.onclick = function(event){
+//      if(event.target == modal){
+//          modal.style.display = "none";
+//      }
+//  }
+
  
