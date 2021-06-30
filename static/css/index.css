@@ -109,3 +109,48 @@
     border-radius: 50%;
     content: '';
   }
+
+.group{
+  list-style-type: none;
+  margin: 5px;
+  padding: 5px;
+  font-size: 20px;
+}
+.group > li{
+  padding: 5px;
+}
+.dropdown{
+  display: block;
+  border: 2px solid rgb(20, 20, 83);
+  margin: 20px;
+  padding: 10px;
+  width: 170px;
+  height: 500px;
+  border-radius: 10px;
+}
+
+.group > li:hover{
+  background-color: rgba(216, 224, 250, 0.993);
+  border: 1px solid blue;
+  border-radius: 5px;
+}
+
+#box1{
+  display: inline-block;
+  background-color: red;
+  width: 15px;
+  height: 20px;
+  border-radius: 5px;
+}
+#line{
+  margin-top: 250px;
+}
+#dtext{
+  font-size: 25px;
+  margin-left: 20px;
+
+}
+
+.date:hover{
+  background-color: rgb(209, 220, 253);
+}
